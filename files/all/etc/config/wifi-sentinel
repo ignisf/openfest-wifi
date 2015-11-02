@@ -1,0 +1,5 @@
+
+config wifi-sentinel
+	option packets 3
+	option interval 10
+	option network 'management'

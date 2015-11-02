@@ -1,0 +1,9 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+# Never uncomment this unless YOU KNOW WHAT YOU'RE DOING
+#for file in /sys/kernel/debug/ieee80211/*/ath10k/dfs_block_radar_events; do
+#    echo Y > $file
+#done
+
+exit 0
