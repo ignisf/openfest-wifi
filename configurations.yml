@@ -1,0 +1,171 @@
+---
+configurations:
+  ap-bulgaria-1-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:00
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:15:01
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-dual-trunk
+  ap-bulgaria-2-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:10
+        channel: 52
+      1:
+        bssid: 02:00:0f:20:15:11
+        channel: 9
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-dual-trunk
+  ap-bulgaria-3-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:20
+        channel: 116
+      1:
+        bssid: 02:00:0f:20:15:21
+        channel: 13
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-triple-trunk
+  ap-bulgaria-4-legacy:
+    config: wr1043-nd
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:30
+        channel: 5
+    mixins:
+      - all
+  ap-chamber-1-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:40
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:15:41
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
+  ap-chamber-2-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:50
+        channel: 116
+      1:
+        bssid: 02:00:0f:20:15:51
+        channel: 13
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
+  ap-music-1-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:60
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:15:61
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
+  ap-marble-1-ac:
+    config: archer-c5
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:70
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:15:71
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
+  ap-lobby1-1-an:
+    config: wdr4300
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:80
+        channel: 13
+      1:
+        bssid: 02:00:0f:20:15:81
+        channel: 100
+    mixins:
+      - all
+      - wdr-4300
+      - wdr-4300-single-trunk
+  ap-lobby1-2-legacy:
+    config: rs
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:90
+        channel: 5
+    mixins:
+      - all
+      - legacy-normal
+  ap-lobby1-3-an:
+    config: wdr4300
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:a0
+        channel: 9
+      1:
+        bssid: 02:00:0f:20:15:a1
+        channel: 108
+    mixins:
+      - all
+      - wdr-4300
+      - wdr-4300-single-trunk
+  ap-lobby2-1-an:
+    config: wdr4300
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:b0
+        channel: 13
+      1:
+        bssid: 02:00:0f:20:15:b1
+        channel: 100
+    mixins:
+      - all
+      - wdr-4300
+      - wdr-4300-dual-trunk
+  ap-lobby2-2-legacy:
+    config: wr841nd
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:c0
+        channel: 5
+    mixins:
+      - all
+      - legacy-small
+  ap-lobby2-3-an:
+    config: wdr4300
+    wlans:
+      0:
+        bssid: 02:00:0f:20:15:d0
+        channel: 1
+      1:
+        bssid: 02:00:0f:20:15:d1
+        channel: 108
+    mixins:
+      - all
+      - wdr-4300
+      - wdr-4300-single-trunk
