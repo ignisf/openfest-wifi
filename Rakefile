@@ -4,15 +4,15 @@ CONFIGURATIONS = YAML.load_file('configurations.yml')['configurations']
 CONFIG_DIR = File.expand_path(File.dirname(__FILE__))
 OUT_DIR = File.expand_path(File.join(File.dirname(__FILE__), "out"))
 
-task :mixins, [:name] do |t, args|
-  CONFIGURATIONS[args.name]['mixins'].each do |mixin|
-    `cp -rp #{CONFIG_DIR}/files/#{mixin}/* #{OUT_DIR}/#{args.name}/files`
+def mixins(name)
+  CONFIGURATIONS[name]['mixins'].each do |mixin|
+    `cp -rp #{CONFIG_DIR}/files/#{mixin}/* #{OUT_DIR}/#{name}/files`
   end
 end
 
-task :wifi, [:name] do |t, args|
-  config_path = File.join(OUT_DIR, args.name, "/files/etc/config/wireless")
-  wlans = CONFIGURATIONS[args.name]['wlans']
+def wifi(name)
+  config_path = File.join(OUT_DIR, name, "/files/etc/config/wireless")
+  wlans = CONFIGURATIONS[name]['wlans']
   wlan_config = File.read(config_path)
 
   wlans.each do |id, wlan|
@@ -27,23 +27,32 @@ task :wifi, [:name] do |t, args|
   end
 end
 
-task :hostname, [:name] do |t, args|
-  `sed -i "s/<hostname>/#{args.name}/g" #{OUT_DIR}/#{args.name}/files/etc/config/system`
-  `sed -i "s/<hostname>/#{args.name}/g" #{OUT_DIR}/#{args.name}/files/etc/collectd.conf`
+def hostname(name)
+  `sed -i "s/<hostname>/#{name}/g" #{OUT_DIR}/#{name}/files/etc/config/system`
+  `sed -i "s/<hostname>/#{name}/g" #{OUT_DIR}/#{name}/files/etc/collectd.conf`
 end
 
-task :config, [:name] do |t, args|
-  config = CONFIGURATIONS[args.name]['config']
-  `cp #{File.join(CONFIG_DIR, "%s.configdiff" % config)} #{File.join(OUT_DIR, args.name)}`
+def config(name)
+  config = CONFIGURATIONS[name]['config']
+  `cp #{File.join(CONFIG_DIR, "%s.configdiff" % config)} #{File.join(OUT_DIR, name)}`
 end
 
-task :outdir, [:name] do |t, args|
-  `mkdir -p #{File.join(OUT_DIR, args.name, 'files')}`
+def outdir(name)
+  `mkdir -p #{File.join(OUT_DIR, name, 'files')}`
 end
 
-desc 'shit'
-task :ap, [:name] => [:outdir, :mixins, :hostname, :wifi]
+task :ap, [:name] do |t, args|
+  outdir args.name
+  mixins args.name
+  hostname args.name
+  wifi args.name
+end
 
 task :all do
-  Rake::Task["ap"].invoke 'ap-bulgaria-1-ac'
+  aps = %W(ap-bulgaria-1-ac ap-bulgaria-2-ac ap-bulgaria-3-ac ap-chamber-1-ac ap-chamber-2-ac ap-marble-1-ac ap-music-1-ac)
+
+  aps.each do |ap|
+    Rake::Task["ap"].reenable
+    Rake::Task["ap"].invoke ap
+  end
 end
