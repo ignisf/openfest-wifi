@@ -29,6 +29,7 @@ end
 
 task :hostname, [:name] do |t, args|
   `sed -i "s/<hostname>/#{args.name}/g" #{OUT_DIR}/#{args.name}/files/etc/config/system`
+  `sed -i "s/<hostname>/#{args.name}/g" #{OUT_DIR}/#{args.name}/files/etc/collectd.conf`
 end
 
 task :config, [:name] do |t, args|
