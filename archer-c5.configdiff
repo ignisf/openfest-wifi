@@ -1,48 +1,6 @@
---- archer-c5.diffconfig	2015-10-31 15:33:36.556255038 +0200
-+++ test.configdiff	2015-11-01 16:11:24.576118304 +0200
-@@ -13,7 +13,6 @@
- CONFIG_LUCI_SRCDIET=y
- CONFIG_MAKE_TOOLCHAIN=y
- CONFIG_PACKAGE_ATH_DEBUG=y
--CONFIG_PACKAGE_arptables=m
- CONFIG_PACKAGE_bmon=y
- CONFIG_PACKAGE_bwm-ng=y
- CONFIG_PACKAGE_collectd=y
-@@ -37,13 +36,11 @@
- # CONFIG_PACKAGE_iptables is not set
- CONFIG_PACKAGE_kismet-drone=y
- CONFIG_PACKAGE_kmod-8021q=y
--CONFIG_PACKAGE_kmod-arptables=m
- CONFIG_PACKAGE_kmod-ath10k=y
- CONFIG_PACKAGE_kmod-bridge=y
- CONFIG_PACKAGE_kmod-ebtables=y
- CONFIG_PACKAGE_kmod-ebtables-ipv4=y
- CONFIG_PACKAGE_kmod-ebtables-ipv6=y
--CONFIG_PACKAGE_kmod-ebtables-watchers=m
- # CONFIG_PACKAGE_kmod-ip6tables is not set
- # CONFIG_PACKAGE_kmod-ipt-conntrack is not set
- # CONFIG_PACKAGE_kmod-ipt-nat is not set
-@@ -64,7 +61,7 @@
- CONFIG_PACKAGE_kmod-usb2=m
- CONFIG_PACKAGE_kmod-zd1211rw=m
- CONFIG_PACKAGE_libcap=y
--CONFIG_PACKAGE_libip6tc=m
-+# CONFIG_PACKAGE_libip6tc is not set
- CONFIG_PACKAGE_libiwinfo-lua=y
- CONFIG_PACKAGE_libltdl=y
- CONFIG_PACKAGE_liblua=y
-@@ -85,7 +82,6 @@
- # CONFIG_PACKAGE_odhcpd is not set
- # CONFIG_PACKAGE_ppp is not set
- CONFIG_PACKAGE_rpcd=y
--CONFIG_PACKAGE_rpcd-mod-iwinfo=y
- CONFIG_PACKAGE_strace=y
- CONFIG_PACKAGE_tcpdump=m
- CONFIG_PACKAGE_tcpdump-mini=y
-openwrt-build@eric:~/openwrt$ cat test.configdiff 
 CONFIG_TARGET_ar71xx=y
 CONFIG_TARGET_ar71xx_generic=y
-CONFIG_TARGET_ar71xx_generic_Default=y
+CONFIG_TARGET_ar71xx_generic_ARCHERC7=y
 CONFIG_DEVEL=y
 CONFIG_ATH_USER_REGD=y
 CONFIG_BWMNG_EXTENDEDSTATS=y
@@ -78,7 +36,6 @@ CONFIG_PACKAGE_htop=y
 # CONFIG_PACKAGE_iptables is not set
 CONFIG_PACKAGE_kismet-drone=y
 CONFIG_PACKAGE_kmod-8021q=y
-CONFIG_PACKAGE_kmod-ath10k=y
 CONFIG_PACKAGE_kmod-bridge=y
 CONFIG_PACKAGE_kmod-ebtables=y
 CONFIG_PACKAGE_kmod-ebtables-ipv4=y
@@ -128,10 +85,12 @@ CONFIG_PACKAGE_strace=y
 CONFIG_PACKAGE_tcpdump=m
 CONFIG_PACKAGE_tcpdump-mini=y
 CONFIG_PACKAGE_terminfo=y
+CONFIG_PACKAGE_uboot-ar71xx-nbg460n_550n_550nh=y
 CONFIG_PACKAGE_uclibcxx=y
 CONFIG_PACKAGE_uhttpd=y
 CONFIG_PACKAGE_uhttpd-mod-ubus=y
 CONFIG_PACKAGE_wavemon=y
+CONFIG_PACKAGE_wifi-sentinel=y
 CONFIG_PACKAGE_wireless-tools=y
 CONFIG_PACKAGE_wpad=y
 # CONFIG_PACKAGE_wpad-mini is not set
