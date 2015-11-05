@@ -1,0 +1,189 @@
+#
+# OpenWrt Config file for collectd(1).
+# Please read collectd.conf(5) for a list of options.
+# http://collectd.org/
+#
+
+Hostname   "ap-bulgaria-1-ac"
+#FQDNLookup  true
+BaseDir     "/var/lib/collectd"
+PIDFile     "/var/run/collectd.pid"
+#PluginDir  "/usr/lib/collectd"
+#TypesDB    "/usr/share/collectd/types.db"
+Interval    10
+ReadThreads 2
+
+#LoadPlugin syslog
+#LoadPlugin logfile
+
+#<Plugin syslog>
+#	LogLevel info
+#</Plugin>
+
+#<Plugin logfile>
+#	LogLevel info
+#	File STDOUT
+#	Timestamp true
+#</Plugin>
+
+LoadPlugin cpu
+#LoadPlugin df
+#LoadPlugin disk
+LoadPlugin interface
+LoadPlugin load
+#LoadPlugin memory
+LoadPlugin network
+#LoadPlugin ping
+#LoadPlugin processes
+#LoadPlugin rrdtool
+#LoadPlugin serial
+LoadPlugin iwinfo
+
+#<Plugin df>
+#	FSType tmpfs
+#	IgnoreSelected true
+#	ReportByDevice false
+#	ReportReserved false
+#	ReportInodes false
+#</Plugin>
+
+#<Plugin disk>
+#	Disk "/^[hs]d[a-f][0-9]?$/"
+#	IgnoreSelected false
+#</Plugin>
+
+#<Plugin interface>
+#	Interface "eth0"
+#	Interface "br-lan"
+#	IgnoreSelected false
+#</Plugin>
+
+<Plugin network>
+#	Server "ff18::efc0:4a42" "25826"
+	Server "10.100.0.1"
+#	Listen "ff18::efc0:4a42" "25826"
+#	Listen "239.192.74.66" "25826"
+#	TimeToLive "128"
+	Forward false
+#	CacheFlush 20
+	ReportStats true
+</Plugin>
+
+#<Plugin ping>
+#	Host "host.foo.bar"
+#	Interval 1.0
+#	Timeout 0.9
+#	TTL 255
+#	SourceAddress "1.2.3.4"
+#	Device "eth0"
+#	MaxMissed -1
+#</Plugin>
+
+#<Plugin processes>
+#	Process "name"
+#</Plugin>
+
+#<Plugin rrdtool>
+#	DataDir "/var/lib/collectd/rrd"
+#	CacheTimeout 120
+#	CacheFlush   900
+#</Plugin>
+
+LoadPlugin exec
+<Plugin exec>
+    Exec "nobody" "/usr/share/collectd/wlstats_gather.sh"
+</Plugin>
+root@OpenWrt:/usr/share/collectd# cat /etc/sudoers
+## sudoers file.
+##
+## This file MUST be edited with the 'visudo' command as root.
+## Failure to use 'visudo' may result in syntax or file permission errors
+## that prevent sudo from running.
+##
+## See the sudoers man page for the details on how to write a sudoers file.
+##
+
+##
+## Host alias specification
+##
+## Groups of machines. These may include host names (optionally with wildcards),
+## IP addresses, network numbers or netgroups.
+# Host_Alias	WEBSERVERS = www1, www2, www3
+
+##
+## User alias specification
+##
+## Groups of users.  These may consist of user names, uids, Unix groups,
+## or netgroups.
+# User_Alias	ADMINS = millert, dowdy, mikef
+
+##
+## Cmnd alias specification
+##
+## Groups of commands.  Often used to group related commands together.
+# Cmnd_Alias	PROCESSES = /usr/bin/nice, /bin/kill, /usr/bin/renice, \
+# 			    /usr/bin/pkill, /usr/bin/top
+# Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
+
+##
+## Defaults specification
+##
+## You may wish to keep some of the following environment variables
+## when running commands via sudo.
+##
+## Locale settings
+# Defaults env_keep += "LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET"
+##
+## Run X applications through sudo; HOME is used to find the
+## .Xauthority file.  Note that other programs use HOME to find
+## configuration files and this may lead to privilege escalation!
+# Defaults env_keep += "HOME"
+##
+## X11 resource path settings
+# Defaults env_keep += "XAPPLRESDIR XFILESEARCHPATH XUSERFILESEARCHPATH"
+##
+## Desktop path settings
+# Defaults env_keep += "QTDIR KDEDIR"
+##
+## Allow sudo-run commands to inherit the callers' ConsoleKit session
+# Defaults env_keep += "XDG_SESSION_COOKIE"
+##
+## Uncomment to enable special input methods.  Care should be taken as
+## this may allow users to subvert the command being run via sudo.
+# Defaults env_keep += "XMODIFIERS GTK_IM_MODULE QT_IM_MODULE QT_IM_SWITCHER"
+##
+## Uncomment to enable logging of a command's output, except for
+## sudoreplay and reboot.  Use sudoreplay to play back logged sessions.
+# Defaults log_output
+# Defaults!/usr/bin/sudoreplay !log_output
+# Defaults!/usr/local/bin/sudoreplay !log_output
+# Defaults!REBOOT !log_output
+
+##
+## Runas alias specification
+##
+
+##
+## User privilege specification
+##
+root ALL=(ALL) ALL
+
+## Uncomment to allow members of group wheel to execute any command
+# %wheel ALL=(ALL) ALL
+
+## Same thing without a password
+# %wheel ALL=(ALL) NOPASSWD: ALL
+
+## Uncomment to allow members of group sudo to execute any command
+# %sudo	ALL=(ALL) ALL
+
+## Uncomment to allow any user to run sudo if they know the password
+## of the user they are running the command as (root by default).
+# Defaults targetpw  # Ask for the password of the target user
+# ALL ALL=(ALL) ALL  # WARNING: only use this together with 'Defaults targetpw'
+
+nobody ALL = (root) NOPASSWD: /usr/share/collectd/wlstats_gatherer.sh
+
+## Read drop-in files from /etc/sudoers.d
+## (the '#' here does not indicate a comment)
+#includedir /etc/sudoers.d
