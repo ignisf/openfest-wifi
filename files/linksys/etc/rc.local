@@ -1,0 +1,8 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+/usr/sbin/ebtables -A FORWARD -i wlan+ -o wlan+ -j DROP
+/usr/sbin/ebtables -A FORWARD -i wlan+ -s 00:1e:0b:d9:bb:6a -j DROP
+/usr/sbin/ebtables -A FORWARD -i eth+ -o wlan+ -s ! 00:1e:0b:d9:bb:6a -j DROP
+
+exit 0
