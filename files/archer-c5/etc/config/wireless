@@ -23,6 +23,8 @@ config wifi-iface
 #	option macaddr '<wlan0-macaddr>'
 	option isolate '1'
 	option iapp_interface 'management'
+	option wnm_sleep_mode 1
+	option proxy_arp 1
 
 config wifi-device radio1
 	option type mac80211
@@ -38,9 +40,6 @@ config wifi-device radio1
 	option log_level '-1'
 	option country 'BG'
 	option country_ie '1'
-#	option doth '1'
-#	option pwr_constraint 4
-#	option spectrum_mgmt 1
 
 config wifi-iface
 	option device radio1
@@ -51,3 +50,6 @@ config wifi-iface
 #	option macaddr '<wlan1-macaddr>'
 	option isolate '1'
 	option iapp_interface 'management'
+	option wnm_sleep_mode 1
+	option proxy_arp 1
+
