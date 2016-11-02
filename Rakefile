@@ -56,7 +56,7 @@ task :ap, [:name] do |t, args|
 end
 
 task :all do
-  aps = %W(ap-l0-1 ap-l0-2 ap-l1-1 ap-l1-2 )
+  aps = %W(ap-l0-1 ap-l0-2 ap-l1-1 ap-c-2 ap-ma-1 ap-mu-1 ap-noc-1)
   # aps = %W(ap-bulgaria-1-ac ap-bulgaria-2-ac ap-bulgaria-3-ac ap-chamber-1-ac ap-chamber-2-ac ap-marble-1-ac ap-music-1-ac ap-lobby1-1-an ap-lobby1-2-legacy)
   # aps = %W(ap-lobby1-3-an)
   # aps = %W(ap-lobby2-1-an)

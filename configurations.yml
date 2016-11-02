@@ -66,48 +66,48 @@ configurations:
   #     - all
   #     - archer-c5
   #     - archer-c5-single-trunk
-  # ap-c-2:
-  #   config: archer-c5
-  #   ip: 10.100.0.205
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:50
-  #       channel: 116
-  #     1:
-  #       bssid: 02:00:0f:20:16:51
-  #       channel: 1
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-single-trunk
-  # ap-music-1-ac:
-  #   config: archer-c5
-  #   ip: 10.100.0.206
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:60
-  #       channel: 36
-  #     1:
-  #       bssid: 02:00:0f:20:16:61
-  #       channel: 1
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-single-trunk
-  # ap-marble-1-ac:
-  #   config: archer-c5
-  #   ip: 10.100.0.207
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:70
-  #       channel: 36
-  #     1:
-  #       bssid: 02:00:0f:20:16:71
-  #       channel: 1
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-single-trunk
+  ap-c-2:
+    config: ar71xx-openwrt
+    ip: 10.100.0.205
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:50
+        channel: 116
+      1:
+        bssid: 02:00:0f:20:16:51
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
+  ap-mu-1:
+    config: ar71xx-openwrt
+    ip: 10.20.0.206
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:60
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:16:61
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
+  ap-ma-1:
+    config: ar71xx-openwrt
+    ip: 10.20.0.207
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:70
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:16:71
+        channel: 1
+    mixins:
+      - all
+      - archer-c5
+      - archer-c5-single-trunk
   ap-l0-1:
     config: ar71xx-openwrt
     ip: 10.20.0.208
@@ -124,7 +124,7 @@ configurations:
       - archer-c5-single-trunk
   # ap-lobby1-2-legacy:
   #   config: rs
-  #   ip: 10.100.0.209
+  #   ip: 10.20.0.209
   #   wlans:
   #     0:
   #       bssid: 02:00:0f:20:16:90
@@ -134,7 +134,7 @@ configurations:
   #     - rs
   ap-l0-2:
     config: ar71xx-openwrt
-    ip: 10.100.0.210
+    ip: 10.20.0.210
     wlans:
       0:
         bssid: 02:00:0f:20:16:a0
@@ -148,7 +148,7 @@ configurations:
       - archer-c5-single-trunk
   ap-l1-1:
     config: ar71xx-openwrt
-    ip: 10.100.0.211
+    ip: 10.20.0.211
     wlans:
       0:
         bssid: 02:00:0f:20:16:b0
@@ -160,26 +160,31 @@ configurations:
       - all
       - archer-c5
       - archer-c5-single-trunk
-  # ap-lobby2-2-legacy:
-  #   config: wr841nd
-  #   ip: 10.100.0.212
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:c0
-  #       channel: 5
-  #   mixins:
-  #     - all
-  ap-l1-2:
+  ap-noc-1:
     config: ar71xx-openwrt
-    ip: 10.100.0.213
+    ip: 10.20.0.212
     wlans:
       0:
-        bssid: 02:00:0f:20:16:d0
-        channel: 108
+        bssid: 02:00:0f:20:16:c0
+        channel: 100
       1:
-        bssid: 02:00:0f:20:16:d1
-        channel: 1
+        bssid: 02:00:0f:20:16:c1
+        channel: 13
     mixins:
       - all
       - archer-c5
       - archer-c5-single-trunk
+  # ap-l1-2:
+  #   config: ar71xx-openwrt
+  #   ip: 10.20.0.213
+  #   wlans:
+  #     0:
+  #       bssid: 02:00:0f:20:16:d0
+  #       channel: 108
+  #     1:
+  #       bssid: 02:00:0f:20:16:d1
+  #       channel: 1
+  #   mixins:
+  #     - all
+  #     - archer-c5
+  #     - archer-c5-single-trunk
