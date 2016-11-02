@@ -5,16 +5,16 @@ config interface 'loopback'
         option netmask '255.0.0.0'
 
 config interface 'management'
-        option ifname 'eth0.100'
+        option ifname 'eth0.20'
         option proto 'static'
         option ipaddr '<ip>'
         option netmask '255.255.255.0'
-        option gateway '10.100.0.1'
-        option dns '10.100.0.1'
+        option gateway '10.20.0.1'
+        option dns '10.20.0.1'
         option ipv6 'no'
 
 config interface 'wireless'
-        option ifname 'eth0.102'
+        option ifname 'eth0.22'
         option proto 'none'
         option ipv6 'no'
         option force_link '1'
@@ -27,15 +27,20 @@ config switch
 
 config switch_vlan
         option device 'switch0'
-        option vlan '25'
+        option vlan '5'
         option ports '0 1 2'
 
 config switch_vlan
         option device 'switch0'
-        option vlan '100'
+        option vlan '20'
         option ports '0t 1t 2t'
 
 config switch_vlan
         option device 'switch0'
-        option vlan '102'
+        option vlan '22'
         option ports '0 1t 2t'
+
+config switch_vlan
+        option device 'switch0'
+        option vlan '23'
+        option ports '0t 1t 2t 4'

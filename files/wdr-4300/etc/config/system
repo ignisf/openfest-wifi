@@ -2,7 +2,7 @@ config system
 	option hostname '<hostname>'
 	option zonename 'Europe/Sofia'
 	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
-	option log_ip '10.100.0.1'
+	option log_ip '10.20.0.1'
 	option log_remote '1'
 
 config timeserver 'ntp'
