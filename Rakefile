@@ -19,7 +19,7 @@ def wifi(name)
     wlan_config.sub!("<radio#{id}-channel>", wlan['channel'].to_s)
     wlan_config.sub!("<wlan#{id}-macaddr>", wlan['bssid'].to_s)
   end
-  wlan_config.gsub!("#	option channel", "	option channel")
+  #wlan_config.gsub!("#	option channel", "	option channel")
   wlan_config.gsub!("#	option macaddr", "	option macaddr")
 
   File.open(config_path, 'w') do |f|
@@ -32,9 +32,14 @@ def hostname(name)
   `sed -i "s/<hostname>/#{name}/g" #{OUT_DIR}/#{name}/files/etc/collectd.conf`
 end
 
+def ip(name)
+  ip = CONFIGURATIONS[name]['ip']
+  `sed -i "s/<ip>/#{ip}/g" #{OUT_DIR}/#{name}/files/etc/config/network`
+end
+
 def config(name)
   config = CONFIGURATIONS[name]['config']
-  `cp #{File.join(CONFIG_DIR, "%s.configdiff" % config)} #{File.join(OUT_DIR, name)}`
+  `cp #{File.join(CONFIG_DIR, "%s.configdiff" % config)} #{File.join(OUT_DIR, name, '.config')}`
 end
 
 def outdir(name)
@@ -46,10 +51,15 @@ task :ap, [:name] do |t, args|
   mixins args.name
   hostname args.name
   wifi args.name
+  ip args.name
+  config args.name
 end
 
 task :all do
-  aps = %W(ap-bulgaria-1-ac ap-bulgaria-2-ac ap-bulgaria-3-ac ap-chamber-1-ac ap-chamber-2-ac ap-marble-1-ac ap-music-1-ac)
+  aps = %W(ap-bulgaria-1-ac ap-bulgaria-2-ac ap-bulgaria-3-ac ap-chamber-1-ac ap-chamber-2-ac ap-marble-1-ac ap-music-1-ac ap-lobby1-1-an ap-lobby1-2-legacy)
+  aps = %W(ap-lobby1-3-an)
+  aps = %W(ap-lobby2-1-an)
+  aps = %W(ap-bulgaria-4-legacy)
 
   aps.each do |ap|
     Rake::Task["ap"].reenable

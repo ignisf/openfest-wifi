@@ -1,8 +1,8 @@
 config interface 'loopback'
-        option ifname 'lo'
-        option proto 'static'
-        option ipaddr '127.0.0.1'
-        option netmask '255.0.0.0'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
 
 config interface 'management'
         option ifname 'eth0'
@@ -28,9 +28,9 @@ config switch
 config switch_vlan
         option device 'switch0'
         option vlan '100'
-        option ports '1t 6'
+        option ports '5t 6'
 
 config switch_vlan
         option device 'switch0'
         option vlan '102'
-        option ports '0 1t'
+        option ports '0 5t'

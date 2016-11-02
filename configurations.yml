@@ -2,6 +2,7 @@
 configurations:
   ap-bulgaria-1-ac:
     config: archer-c5
+    ip: 10.100.0.200
     wlans:
       0:
         bssid: 02:00:0f:20:15:00
@@ -15,6 +16,7 @@ configurations:
       - archer-c5-dual-trunk
   ap-bulgaria-2-ac:
     config: archer-c5
+    ip: 10.100.0.201
     wlans:
       0:
         bssid: 02:00:0f:20:15:10
@@ -28,6 +30,7 @@ configurations:
       - archer-c5-dual-trunk
   ap-bulgaria-3-ac:
     config: archer-c5
+    ip: 10.100.0.202
     wlans:
       0:
         bssid: 02:00:0f:20:15:20
@@ -41,14 +44,17 @@ configurations:
       - archer-c5-triple-trunk
   ap-bulgaria-4-legacy:
     config: wr1043-nd
+    ip: 10.100.0.203
     wlans:
       0:
         bssid: 02:00:0f:20:15:30
         channel: 5
     mixins:
       - all
+      - wr-1043nd
   ap-chamber-1-ac:
     config: archer-c5
+    ip: 10.100.0.204
     wlans:
       0:
         bssid: 02:00:0f:20:15:40
@@ -62,6 +68,7 @@ configurations:
       - archer-c5-single-trunk
   ap-chamber-2-ac:
     config: archer-c5
+    ip: 10.100.0.205
     wlans:
       0:
         bssid: 02:00:0f:20:15:50
@@ -75,6 +82,7 @@ configurations:
       - archer-c5-single-trunk
   ap-music-1-ac:
     config: archer-c5
+    ip: 10.100.0.206
     wlans:
       0:
         bssid: 02:00:0f:20:15:60
@@ -88,6 +96,7 @@ configurations:
       - archer-c5-single-trunk
   ap-marble-1-ac:
     config: archer-c5
+    ip: 10.100.0.207
     wlans:
       0:
         bssid: 02:00:0f:20:15:70
@@ -101,6 +110,7 @@ configurations:
       - archer-c5-single-trunk
   ap-lobby1-1-an:
     config: wdr4300
+    ip: 10.100.0.208
     wlans:
       0:
         bssid: 02:00:0f:20:15:80
@@ -114,15 +124,17 @@ configurations:
       - wdr-4300-single-trunk
   ap-lobby1-2-legacy:
     config: rs
+    ip: 10.100.0.209
     wlans:
       0:
         bssid: 02:00:0f:20:15:90
         channel: 5
     mixins:
       - all
-      - legacy-normal
+      - rs
   ap-lobby1-3-an:
     config: wdr4300
+    ip: 10.100.0.210
     wlans:
       0:
         bssid: 02:00:0f:20:15:a0
@@ -136,6 +148,7 @@ configurations:
       - wdr-4300-single-trunk
   ap-lobby2-1-an:
     config: wdr4300
+    ip: 10.100.0.211
     wlans:
       0:
         bssid: 02:00:0f:20:15:b0
@@ -146,18 +159,19 @@ configurations:
     mixins:
       - all
       - wdr-4300
-      - wdr-4300-dual-trunk
+      - wdr-4300-single-trunk
   ap-lobby2-2-legacy:
     config: wr841nd
+    ip: 10.100.0.212
     wlans:
       0:
         bssid: 02:00:0f:20:15:c0
         channel: 5
     mixins:
       - all
-      - legacy-small
   ap-lobby2-3-an:
     config: wdr4300
+    ip: 10.100.0.213
     wlans:
       0:
         bssid: 02:00:0f:20:15:d0

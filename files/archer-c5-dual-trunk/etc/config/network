@@ -6,7 +6,11 @@ config interface 'loopback'
 
 config interface 'management'
         option ifname 'eth0'
-        option proto 'dhcp'
+        option proto 'static'
+        option ipaddr '<ip>'
+        option netmask '255.255.255.0'
+        option gateway '10.100.0.1'
+        option dns '10.100.0.1'
         option ipv6 'no'
 
 config interface 'wireless'
