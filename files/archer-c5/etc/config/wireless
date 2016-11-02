@@ -12,12 +12,11 @@ config wifi-device  radio0
 	option country 'BG'
 	option country_ie '1'
 	option doth '1'
-#	option pwr_constraint 0
 
 config wifi-iface
 	option device radio0
 	option network 'wireless'
-	option mode ap
+	option mode 'ap'
 	option ssid 'OpenFest'
 	option encryption 'none'
 #	option macaddr '<wlan0-macaddr>'

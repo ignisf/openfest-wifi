@@ -8,13 +8,10 @@ config wifi-device  radio0
 	option distance '20'
 	list basic_rate '54000'
 	option require_mode 'g'
-	option beacon_int 250
 	option log_level '-1'
-	option country '00'
-#	option country_ie '1'
-#	option doth '1'
-#	option pwr_constraint 4
-#	option spectrum_mgmt 1
+	option country 'BG'
+	option beacon_int 250
+
 
 config wifi-iface
 	option device radio0
@@ -25,29 +22,32 @@ config wifi-iface
 #	option macaddr '<wlan0-macaddr>'
 	option isolate '1'
 	option iapp_interface 'management'
+	option wnm_sleep_mode 1
+	option proxy_arp 1
 
-config wifi-device  radio1
+config wifi-device radio1
 	option type mac80211
 	option hwmode 11a
 	option path 'pci0000:00/0000:00:00.0'
 #	option channel <radio1-channel>
 #	option txpower '30'
-	option htmode HT20
+	option htmode HT40
 	option distance '20'
 	list basic_rate '54000'
 	option require_mode 'n'
 	option log_level '-1'
-	option country '00'
-#	option country_ie '1'
-#	option doth '1'
-#	option pwr_constraint 0
+	option country 'BG'
+
+
 
 config wifi-iface
 	option device radio1
 	option network 'wireless'
-	option mode ap
+	option mode 'ap'
 	option ssid 'OpenFest'
 	option encryption 'none'
 #	option macaddr '<wlan1-macaddr>'
 	option isolate '1'
 	option iapp_interface 'management'
+	option wnm_sleep_mode 1
+	option proxy_arp 1
