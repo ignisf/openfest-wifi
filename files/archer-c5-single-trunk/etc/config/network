@@ -9,8 +9,8 @@ config interface 'management'
         option proto 'static'
         option ipaddr '<ip>'
         option netmask '255.255.255.0'
-        option gateway '10.100.0.1'
-        option dns '10.100.0.1'
+        option gateway '10.20.0.1'
+        option dns '10.20.0.1'
         option ipv6 'no'
 
 config interface 'wireless'
@@ -27,10 +27,10 @@ config switch
 
 config switch_vlan
         option device 'switch0'
-        option vlan '100'
+        option vlan '20'
         option ports '1t 6'
 
 config switch_vlan
         option device 'switch0'
-        option vlan '102'
+        option vlan '22'
         option ports '0 1t'
