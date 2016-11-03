@@ -1,0 +1,35 @@
+
+config system
+	option hostname '<hostname>'
+	option zonename 'Europe/Sofia'
+	option timezone 'EET-2EEST,M3.5.0/3,M10.5.0/4'
+	option log_ip '10.20.0.1'
+	option log_remote '1'
+	option ttylogin '0'
+	option log_size '64'
+	option urandom_seed '0'j
+
+config timeserver 'ntp'
+	list server '0.openwrt.pool.ntp.org'
+	list server '1.openwrt.pool.ntp.org'
+	list server '2.openwrt.pool.ntp.org'
+	list server '3.openwrt.pool.ntp.org'
+	option enabled '1'
+	option enable_server '0'
+
+config led 'led_power'
+	option name 'POWER'
+	option sysfs 'd-link:green:power'
+	option default '1'
+	option trigger 'heartbeat'
+
+config led 'led_diag'
+	option name 'DIAG'
+	option sysfs 'd-link:red:power'
+	option default '0'
+
+config led 'led_wlan2g'
+	option name 'WLAN 2.4 GHz'
+	option sysfs 'd-link:green:wlan2g'
+	option trigger 'phy1tpt'
+
