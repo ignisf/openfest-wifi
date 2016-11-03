@@ -1,74 +1,78 @@
 ---
 configurations:
-  # ap-bulgaria-1-ac:
-  #   config: ar71xx-openwrt
-  #   ip: 10.100.0.200
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:00
-  #       channel: 36
-  #     1:
-  #       bssid: 02:00:0f:20:16:01
-  #       channel: 1
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-dual-trunk
-  # ap-bulgaria-2-ac:
-  #   config: archer-c5
-  #   ip: 10.100.0.201
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:10
-  #       channel: 52
-  #     1:
-  #       bssid: 02:00:0f:20:16:11
-  #       channel: 9
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-dual-trunk
-  # ap-bulgaria-3-ac:
-  #   config: archer-c5
-  #   ip: 10.100.0.202
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:20
-  #       channel: 116
-  #     1:
-  #       bssid: 02:00:0f:20:16:21
-  #       channel: 13
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-triple-trunk
-  # ap-bulgaria-4-legacy:
-  #   config: wr1043-nd
-  #   ip: 10.100.0.203
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:30
-  #       channel: 5
-  #   mixins:
-  #     - all
-  #     - wr-1043nd
-  # ap-chamber-1-ac:
-  #   config: archer-c5
-  #   ip: 10.100.0.204
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:40
-  #       channel: 36
-  #     1:
-  #       bssid: 02:00:0f:20:16:41
-  #       channel: 1
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-single-trunk
+  ap-bg-1:
+    config: linksys
+    ip: 10.20.0.200
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:00
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:16:01
+        channel: 1
+    mixins:
+      - all
+      - linksys
+      - linksys-dual-trunk
+  ap-bg-2:
+    config: ar71xx-lede
+    ip: 10.20.0.201
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:10
+        channel: 52
+      1:
+        bssid: 02:00:0f:20:16:11
+        channel: 9
+    mixins:
+      - all
+      - dap2965
+      - dap2965-video
+  ap-bg-3:
+    config: ar71xx-lede
+    ip: 10.20.0.202
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:20
+        channel: 116
+      1:
+        bssid: 02:00:0f:20:16:21
+        channel: 13
+    mixins:
+      - all
+      - dap2965
+      - dap2965-single-trunk
+  ap-bg-4:
+    config: linksys
+    ip: 10.20.0.203
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:30
+        channel: 116
+      1:
+        bssid: 02:00:0f:20:16:31
+        channel: 13
+    mixins:
+      - all
+      - linksys
+      - linksys-dual-trunk-video
+  ap-c-1:
+    config: linksys
+    ip: 10.20.0.204
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:40
+        channel: 36
+      1:
+        bssid: 02:00:0f:20:16:41
+        channel: 1
+    mixins:
+      - all
+      - linksys
+      - linksys-single-trunk
   ap-c-2:
     config: ar71xx-openwrt
-    ip: 10.100.0.205
+    ip: 10.20.0.205
     wlans:
       0:
         bssid: 02:00:0f:20:16:50
@@ -174,17 +178,17 @@ configurations:
       - all
       - archer-c5
       - archer-c5-single-trunk
-  # ap-l1-2:
-  #   config: ar71xx-openwrt
-  #   ip: 10.20.0.213
-  #   wlans:
-  #     0:
-  #       bssid: 02:00:0f:20:16:d0
-  #       channel: 108
-  #     1:
-  #       bssid: 02:00:0f:20:16:d1
-  #       channel: 1
-  #   mixins:
-  #     - all
-  #     - archer-c5
-  #     - archer-c5-single-trunk
+  ap-l1-2:
+    config: linksys
+    ip: 10.20.0.213
+    wlans:
+      0:
+        bssid: 02:00:0f:20:16:d0
+        channel: 108
+      1:
+        bssid: 02:00:0f:20:16:d1
+        channel: 1
+    mixins:
+      - all
+      - linksys
+      - linksys-single-trunk
