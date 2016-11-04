@@ -57,7 +57,7 @@ end
 
 task :all do
   aps = %W(ap-l0-1 ap-l0-2 ap-l1-1 ap-l1-2 ap-c-1 ap-c-2 ap-ma-1 ap-mu-1 ap-noc-1)
-  aps = %W(ap-bg-1 ap-bg-2 ap-bg-3 ap-bg-4)
+  aps += %W(ap-bg-1 ap-bg-2 ap-bg-3 ap-bg-4)
 
   aps.each do |ap|
     Rake::Task["ap"].reenable
